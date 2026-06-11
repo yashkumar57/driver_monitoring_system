@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+
+# VS Code
+.vscode/
+
+# React
+node_modules/
+frontend/dist/
+
+# Runtime files
+screenshots/
+app/driver_monitor.db
+
+# Environment files
+.env
+
+#weights file
+app/yolo/yolov3.weights
