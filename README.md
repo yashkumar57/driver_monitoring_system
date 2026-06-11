@@ -1,9 +1,9 @@
 # Driver Monitoring System
----
+
 An AI-powered Driver Monitoring System that detects driver drowsiness and yawning in real time using Computer Vision and Deep Learning techniques.
 
 ## Features
----
+
 * Real-time driver monitoring using webcam
 * YOLOv3-based person detection
 * CSRT object tracking
@@ -18,15 +18,15 @@ An AI-powered Driver Monitoring System that detects driver drowsiness and yawnin
 * Latest alert preview
 
 ## Screenshots
----
+
 ### Dashboard
 ![Dashboard](docs/dashboard.png)
 
 ### Detection Window
-![Detection](docs/detection.png)
+![Detection](docs/detection.jpg)
 
 ## Tech Stack
----
+
 ### Backend
 * Python
 * OpenCV
@@ -45,7 +45,7 @@ An AI-powered Driver Monitoring System that detects driver drowsiness and yawnin
 * Face Landmark Detection
 
 ## Project Architecture
----
+
 Webcam Input
     ↓
 YOLO Person Detection
@@ -65,7 +65,7 @@ FastAPI Backend
 React Dashboard
 
 ## Folder Structure
----
+
 driver-monitor/
 ├── app/
 │ ├── main.py
@@ -86,7 +86,7 @@ driver-monitor/
 └── README.md
 
 ## Installation
----
+
 ### Clone Repository
 git clone https://github.com/yashkumar57/driver_monitoring_system.git
 cd driver_monitoring_system
@@ -99,7 +99,7 @@ cd frontend
 npm install
 
 ## Running the Project
----
+
 ## YOLO Weights
 The YOLOv3 weights file is not included in this repository due to GitHub file size limitations.
 Download:
@@ -117,7 +117,6 @@ cd frontend
 npm run dev
 
 ## Future Improvements
----
 * Docker Deployment
 * AWS Cloud Deployment
 * Live Video Streaming in Dashboard
