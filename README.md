@@ -45,27 +45,22 @@ An AI-powered Driver Monitoring System that detects driver drowsiness and yawnin
 * Face Landmark Detection
 
 ## Project Architecture
-
-Webcam Input
-    ↓
-YOLO Person Detection
-    ↓
-CSRT Tracking
-    ↓
-MediaPipe Face Landmarks
-    ↓
-EAR / MAR Calculation
-    ↓
-Drowsiness & Yawn Detection
-    ↓
-Screenshot Capture + Database Logging
-    ↓
-FastAPI Backend
-    ↓
-React Dashboard
+```mermaid
+flowchart TD
+    A[Webcam Input]
+    --> B[YOLO Person Detection]
+    --> C[CSRT Tracking]
+    --> D[MediaPipe Face Landmarks]
+    --> E[EAR / MAR Calculation]
+    --> F[Drowsiness & Yawn Detection]
+    --> G[Screenshot Capture]
+    --> H[SQLite Database]
+    --> I[FastAPI Backend]
+    --> J[React Dashboard]
+```
 
 ## Folder Structure
-
+```text
 driver-monitor/
 ├── app/
 │ ├── main.py
@@ -84,7 +79,7 @@ driver-monitor/
 │
 ├── screenshots/
 └── README.md
-
+```
 ## Installation
 
 ### Clone Repository
