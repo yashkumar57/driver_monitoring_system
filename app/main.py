@@ -101,18 +101,18 @@ while True:
                     log_alert(current_time, status, screenshot_path)
                     state["alert_sent"] = True
             # Yawn Detect n display
-                if mar > MAR_THRESHOLD:
-                    state["yawn_counter"] += 1
-                else:
-                    state["yawn_counter"] = 0
-                    state["yawn_alert_sent"] = False
-                if state["yawn_counter"] > FRAME_LIMIT:
-                    status = "YAWNING"
-                    c.putText(frame,"YAWNING!",(width//2 - 120, 140),c.FONT_HERSHEY_SIMPLEX,1.2,(0, 255, 255),3)
-                    if not state["yawn_alert_sent"]:
-                        screenshot_path = save_screenshot(frame)
-                        log_alert(current_time, status, screenshot_path)
-                        state["yawn_alert_sent"] = True
+            if mar > MAR_THRESHOLD:
+                state["yawn_counter"] += 1
+            else:
+                state["yawn_counter"] = 0
+                state["yawn_alert_sent"] = False
+            if state["yawn_counter"] > FRAME_LIMIT:
+                status = "YAWNING"
+                c.putText(frame,"YAWNING!",(width//2 - 120, 140),c.FONT_HERSHEY_SIMPLEX,1.2,(0, 255, 255),3)
+                if not state["yawn_alert_sent"]:
+                    screenshot_path = save_screenshot(frame)
+                    log_alert(current_time, status, screenshot_path)
+                    state["yawn_alert_sent"] = True
             c.putText(frame,f"STATUS: {status}",(20, 30),c.FONT_HERSHEY_SIMPLEX,0.9,(0, 255, 0),2)
     # FPS calc
     fps = c.getTickFrequency() / (c.getTickCount() - start)
