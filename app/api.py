@@ -3,8 +3,8 @@ from fastapi import FastAPI
 from app.db_connection import get_connection
 
 app = FastAPI()
-from fastapi.staticfiles import StaticFiles
-app.mount("/screenshots", StaticFiles(directory="../screenshots"), name="screenshots")
+#from fastapi.staticfiles import StaticFiles
+#app.mount("/screenshots", StaticFiles(directory="../screenshots"), name="screenshots")
 app.add_middleware(CORSMiddleware,allow_origins=["*"],allow_credentials=True,allow_methods=["*"],allow_headers=["*"],)
 
 @app.get("/")
