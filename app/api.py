@@ -1,6 +1,6 @@
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI
-import sqlite3
+from db_connection import get_connection
 
 app = FastAPI()
 from fastapi.staticfiles import StaticFiles
@@ -12,7 +12,7 @@ def home():
     return {"message": "Driver Monitoring API Running"}
 @app.get("/alerts")
 def get_alerts():
-    conn = sqlite3.connect("driver_monitor.db")
+    conn = get_connection()
     cursor = conn.cursor()
     cursor.execute("""SELECT * FROM alerts""")
     rows = cursor.fetchall()
@@ -28,7 +28,7 @@ def get_alerts():
 
 @app.get("/latest")
 def latest_alert():
-    conn = sqlite3.connect("driver_monitor.db")
+    conn = get_connection()
     cursor = conn.cursor()
     cursor.execute("""SELECT * FROM alerts ORDER BY id DESC LIMIT 1""")
     row = cursor.fetchone()
@@ -44,13 +44,16 @@ def latest_alert():
 
 @app.get("/stats")
 def get_stats():
-    conn = sqlite3.connect("driver_monitor.db")
+    conn = get_connection()
     cursor = conn.cursor()
-    # total alerts
+    #total alerts
     cursor.execute("""SELECT COUNT(*) FROM alerts""")
     total_alerts = cursor.fetchone()[0]
-    # drowsy count
+    #drowsy count
     cursor.execute("""SELECT COUNT(*) FROM alerts WHERE status='DROWSY'""")
     drowsy_count = cursor.fetchone()[0]
+    #yawn alert
+    cursor.execute("""SELECT COUNT(*) FROM alerts WHERE status='YAWNING'""")
+    yawn_count = cursor.fetchone()[0]
     conn.close()
-    return {"total_alerts": total_alerts, "drowsy_alerts": drowsy_count}
+    return {"total_alerts": total_alerts, "drowsy_alerts": drowsy_count, "yawn_alerts": yawn_count}

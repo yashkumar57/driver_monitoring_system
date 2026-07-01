@@ -1,11 +1,7 @@
 import os
 import psycopg2
-from dotenv import load_dotenv
-# Load variables from .env
-load_dotenv()
-# connect database
-DATABASE_URL = os.getenv("DATABASE_URL")
-conn = psycopg2.connect(DATABASE_URL)
+from db_connection import get_connection
+conn = get_connection()
 cursor = conn.cursor()
 # create table
 cursor.execute("""CREATE TABLE IF NOT EXISTS alerts (id SERIAL PRIMARY KEY ,timestamp TEXT,status TEXT NOT NULL ,screenshot TEXT)""")
