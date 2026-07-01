@@ -11,7 +11,9 @@ frontend/dist/
 
 # Runtime files
 screenshots/
-app/driver_monitor.db
+*.db
+*.sqlite3
+*.db-journal
 
 # Environment files
 .env
