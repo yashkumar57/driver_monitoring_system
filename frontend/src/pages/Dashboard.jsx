@@ -11,9 +11,9 @@ function Dashboard({ stats, latestAlert }) {
 
         <div className="card">
 
-          <h2>Total Alerts</h2>
+          <h2>Yawn Alerts</h2>
 
-          <h1>{stats?.total_alerts}</h1>
+          <h1>{stats?.yawn_alerts}</h1>
 
         </div>
 

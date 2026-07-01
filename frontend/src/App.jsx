@@ -5,24 +5,25 @@ import Footer from "./components/Footer"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Dashboard from "./pages/Dashboard"
 import Alerts from "./pages/Alerts"
+const API = import.meta.env.VITE_API_URL;
 function App() {
   const [stats, setStats] = useState(null)
   const [alerts, setAlerts] = useState([])
   const [latestAlert, setLatestAlert] = useState(null)
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/stats")
+    fetch(`${API}/stats`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data)
         setStats(data)
       })
-    fetch("http://127.0.0.1:8000/alerts")
+    fetch(`${API}/alerts`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data)
         setAlerts(data)
       })
-    fetch("http://127.0.0.1:8000/latest")
+    fetch(`${API}/latest`)
     .then((response) => response.json())
     .then((data) => {
         console.log(data)
