@@ -1,6 +1,6 @@
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI
-from db_connection import get_connection
+from app.db_connection import get_connection
 
 app = FastAPI()
 from fastapi.staticfiles import StaticFiles

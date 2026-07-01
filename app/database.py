@@ -1,6 +1,6 @@
 import os
 import psycopg2
-from db_connection import get_connection
+from app.db_connection import get_connection
 conn = get_connection()
 cursor = conn.cursor()
 # create table
