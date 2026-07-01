@@ -5,7 +5,7 @@ import Footer from "./components/Footer"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Dashboard from "./pages/Dashboard"
 import Alerts from "./pages/Alerts"
-const API = import.meta.env.VITE_API_URL;
+const API = import.meta.env.VITE_API_URL.replace(/\/$/, "");
 function App() {
   const [stats, setStats] = useState(null)
   const [alerts, setAlerts] = useState([])
