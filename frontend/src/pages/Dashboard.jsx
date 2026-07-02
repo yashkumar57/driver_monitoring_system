@@ -42,9 +42,9 @@ function Dashboard({ stats, latestAlert }) {
           </p>
 
           <img
-          src={`${API}/screenshots/${latestAlert.screenshot}`}
-          alt="alert"
-          className="alert-image"
+            src={latestAlert.screenshot}
+            alt="alert"
+            className="alert-image"
           />
 
         </div>
