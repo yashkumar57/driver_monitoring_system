@@ -42,9 +42,9 @@ function Dashboard({ stats, latestAlert }) {
           </p>
 
           <img
-            src={`http://127.0.0.1:8000/${latestAlert.screenshot.replace("../", "")}`}
-            alt="alert"
-            className="alert-image"
+          src={`${API}/screenshots/${latestAlert.screenshot}`}
+          alt="alert"
+          className="alert-image"
           />
 
         </div>

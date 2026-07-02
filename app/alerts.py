@@ -1,21 +1,24 @@
 import cv2 as c
 import os
 from datetime import datetime
+from storage import upload_screenshot
+
+SCREENSHOT_DIR = "../screenshots"
 
 def save_screenshot(frame):
 
     # create screenshots folder if missing
-    if not os.path.exists("../screenshots"):
-        os.makedirs("../screenshots")
+    os.makedirs(SCREENSHOT_DIR, exist_ok=True)
 
     # unique filename using time
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 
-    filename = f"../screenshots/alert_{timestamp}.jpg"
+    filename = f"alert_{timestamp}.jpg"
+    full_path = os.path.join(SCREENSHOT_DIR, filename)
 
     # save image
-    c.imwrite(filename, frame)
+    c.imwrite(full_path, frame)
 
-    print(f"Screenshot saved: {filename}")
-
-    return filename
+    public_url = upload_screenshot(full_path)
+    print(public_url)
+    return public_url
